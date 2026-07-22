@@ -1,18 +1,35 @@
-# React + Vite
+# Anvaya CRM (Major Project 2) - Lead Management App (Frontend)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The Anvaya CRM app will focus on lead management with defined steps for each lead's lifecycle. We will assign sales agents to leads and allow users to add comments or updates to each lead.
 
-Currently, two official plugins are available:
+## Tech Stack
+React 19, Vite 8, Axios, react-select, ESLint and more to be updated in future.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Getting Started
+1. Clone the repo
+2. `npm install`
+3. Create `.env` with `VITE_BASE_URL=<your-backend-url>`
+4. `npm run dev`
 
-## React Compiler
+## Available Scripts
+- `npm run dev` – start dev server (network-hosted)
+- `npm run build` – production build
+- `npm run preview` – preview production build
+- `npm run lint` – run ESLint
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## Project Structure
+src/
+├── App.jsx
+├── App.css
+├── index.css
+├── main.jsx
+├── hooks/
+│   ├── useAxiosGET.jsx
+│   └── useToast.jsx
+└── pages/
+    └── leadForm.jsx
 
-Note: This will impact Vite dev & build performances.
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Environment Variables
+| Variable        | Description           |
+|-----------------|-----------------------|
+| `VITE_BASE_URL` | Backend API base URL  |
