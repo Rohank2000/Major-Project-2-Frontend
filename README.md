@@ -19,7 +19,7 @@ React 19, Vite 8, Axios, react-select, ESLint and more to be updated in future.
 
 ## Project Structure
 
-src/
+`src/
 ├── App.jsx
 ├── App.css
 ├── index.css
@@ -28,7 +28,7 @@ src/
 │   ├── useAxiosGET.jsx
 │   └── useToast.jsx
 └── pages/
-    └── leadForm.jsx
+    └── leadForm.jsx`
 
 
 ## Environment Variables
