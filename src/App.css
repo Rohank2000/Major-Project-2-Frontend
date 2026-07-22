@@ -1,0 +1,689 @@
+@media (min-width: 400px) {
+  .container {
+    margin: 90px 90px;
+    padding-left: 50px;
+    padding-right: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+
+  .form-design {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 3rem 2rem 6.5rem 2rem;
+    border-radius: 6px;
+    background-color: #ffffff;
+    color: #374151;
+    font-weight: 500;
+  }
+
+  .form-design h1 {
+    font-size: 1.75rem;
+    margin: 0 0 1.5rem 0;
+    color: #111827;
+    text-align: left;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+      sans-serif;
+    font-weight: 600;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid #6366f1;
+  }
+
+  .form-design label {
+    width: 140px;
+    text-align: left;
+    flex-shrink: 0;
+  }
+
+  .tags-multi-design {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .timeToClose-name-design {
+    display: flex;
+    gap: 12px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .priority-design {
+    display: flex;
+    gap: 12px;
+    margin-top: 1rem;
+  }
+
+  .status-design {
+    display: flex;
+    gap: 12px;
+    margin-top: 1rem;
+  }
+
+  .salesAgent-design {
+    display: flex;
+    gap: 12px;
+    margin-top: 1rem;
+  }
+
+  .source-design {
+    display: flex;
+    gap: 12px;
+    margin-top: 1rem;
+  }
+
+  .lead-name-design {
+    display: flex;
+    gap: 12px;
+  }
+
+  .tags-input-box {
+    flex: 1;
+    min-width: 180px;
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    padding: 6px 8px;
+    font-size: 14px;
+    color: #1f2937;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+      sans-serif;
+  }
+
+  .timeToClose-input-box {
+    flex: 1;
+    min-width: 180px;
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    padding: 6px 8px;
+    font-size: 14px;
+    color: #1f2937;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+      sans-serif;
+  }
+
+  .priority-input-box {
+    flex: 1;
+    min-width: 180px;
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    padding: 6px 8px;
+    font-size: 14px;
+    color: #1f2937;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+      sans-serif;
+  }
+
+  .status-input-box {
+    flex: 1;
+    min-width: 180px;
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    padding: 6px 8px;
+    font-size: 14px;
+    color: #1f2937;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+      sans-serif;
+  }
+
+  .salesAgent-input-box {
+    flex: 1;
+    min-width: 180px;
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    padding: 6px 8px;
+    font-size: 14px;
+    color: #1f2937;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+      sans-serif;
+  }
+
+  .source-input-box {
+    flex: 1;
+    min-width: 180px;
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    padding: 6px 8px;
+    font-size: 14px;
+    color: #1f2937;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+      sans-serif;
+  }
+
+  .leadName-input-box {
+    flex: 1;
+    min-width: 180px;
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    padding: 6px 8px;
+    font-size: 14px;
+    color: #1f2937;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+      sans-serif;
+  }
+
+  button {
+    background: #6366f1;
+    color: #ffffff;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 6px;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+      sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 1.5rem;
+  }
+  .toast-green-style {
+    position: fixed;
+    top: 20px;
+   background-color: #22c55e;
+    color: #ffffff;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+      sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 12px 24px;
+    border-radius: 6px;
+    border: 1px solid #16a34a;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  .toast-red-style {
+    position: fixed;
+    top: 20px;
+    background-color: #ef4444;
+    color: #ffffff;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+      sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 12px 24px;
+    border-radius: 6px;
+    border: 1px solid #dc2626;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+}
+
+@media (max-width: 400px) {
+  .container {
+    padding: 20px 20px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+  }
+
+  .form-design {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 3rem 2rem 6.5rem 2rem;
+    border-radius: 6px;
+    background-color: #ffffff;
+    color: #374151;
+    font-weight: 500;
+  }
+
+  .form-design h1 {
+    font-size: 1.75rem;
+    margin: 0 0 1.5rem 0;
+    color: #111827;
+    text-align: left;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+      sans-serif;
+    font-weight: 600;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid #6366f1;
+  }
+
+  .form-design label {
+    width: 140px;
+    text-align: left;
+    flex-shrink: 0;
+  }
+
+  .tags-multi-design {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .timeToClose-name-design {
+    display: flex;
+    gap: 12px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .priority-design {
+    display: flex;
+    gap: 12px;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .status-design {
+    display: flex;
+    gap: 12px;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .salesAgent-design {
+    display: flex;
+    gap: 12px;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .source-design {
+    display: flex;
+    gap: 12px;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .lead-name-design {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .tags-input-box {
+    flex: 1;
+    min-width: 180px;
+  }
+
+  .timeToClose-input-box {
+    flex: 1;
+    min-width: 180px;
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    padding: 6px 8px;
+    font-size: 14px;
+    color: #1f2937;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+      sans-serif;
+  }
+
+  .priority-input-box {
+    flex: 1;
+    min-width: 180px;
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    padding: 6px 8px;
+    font-size: 14px;
+    color: #1f2937;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+      sans-serif;
+  }
+
+  .status-input-box {
+    flex: 1;
+    min-width: 180px;
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    padding: 6px 8px;
+    font-size: 14px;
+    color: #1f2937;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+      sans-serif;
+  }
+
+  .salesAgent-input-box {
+    flex: 1;
+    min-width: 180px;
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    padding: 6px 8px;
+    font-size: 14px;
+    color: #1f2937;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+      sans-serif;
+  }
+
+  .source-input-box {
+    flex: 1;
+    min-width: 180px;
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    padding: 6px 8px;
+    font-size: 14px;
+    color: #1f2937;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+      sans-serif;
+  }
+
+  .leadName-input-box {
+    flex: 1;
+    min-width: 180px;
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    padding: 6px 8px;
+    font-size: 14px;
+    color: #1f2937;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+      sans-serif;
+  }
+
+  button {
+    background: #6366f1;
+    color: #ffffff;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 6px;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+      sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 1.5rem;
+  }
+
+  .toast-green-style {
+    position: fixed;
+    top: 10px;
+    left:120px;
+   background-color: #22c55e;
+    color: #ffffff;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+      sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 12px 24px;
+    border-radius: 6px;
+    border: 1px solid #16a34a;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  .toast-red-style {
+    position: fixed;
+       top: 10px;
+    left:120px;
+    background-color: #ef4444;
+    color: #ffffff;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+      sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 12px 24px;
+    border-radius: 6px;
+    border: 1px solid #dc2626;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+}
+
+@media (width: 1280px) {
+  .container {
+    margin: 90px 90px;
+    padding-left: 50px;
+    padding-right: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+
+  .form-design {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 3rem 2rem 6.5rem 2rem;
+    border-radius: 6px;
+    background-color: #ffffff;
+    color: #374151;
+    font-weight: 500;
+  }
+
+  .form-design h1 {
+    font-size: 1.75rem;
+    margin: 0 0 1.5rem 0;
+    color: #111827;
+    text-align: left;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+      sans-serif;
+    font-weight: 600;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid #6366f1;
+  }
+
+  .form-design label {
+    width: 140px;
+    text-align: left;
+    flex-shrink: 0;
+  }
+
+  .tags-multi-design {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .timeToClose-name-design {
+    display: flex;
+    gap: 12px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .priority-design {
+    display: flex;
+    gap: 12px;
+    margin-top: 1rem;
+  }
+
+  .status-design {
+    display: flex;
+    gap: 12px;
+    margin-top: 1rem;
+  }
+
+  .salesAgent-design {
+    display: flex;
+    gap: 12px;
+    margin-top: 1rem;
+  }
+
+  .source-design {
+    display: flex;
+    gap: 12px;
+    margin-top: 1rem;
+  }
+
+  .lead-name-design {
+    display: flex;
+    gap: 12px;
+  }
+
+  .tags-input-box {
+    flex: 1;
+    min-width: 180px;
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    padding: 6px 8px;
+    font-size: 14px;
+    color: #1f2937;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+      sans-serif;
+  }
+
+  .timeToClose-input-box {
+    flex: 1;
+    min-width: 180px;
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    padding: 6px 8px;
+    font-size: 14px;
+    color: #1f2937;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+      sans-serif;
+  }
+
+  .priority-input-box {
+    flex: 1;
+    min-width: 180px;
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    padding: 6px 8px;
+    font-size: 14px;
+    color: #1f2937;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+      sans-serif;
+  }
+
+  .status-input-box {
+    flex: 1;
+    min-width: 180px;
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    padding: 6px 8px;
+    font-size: 14px;
+    color: #1f2937;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+      sans-serif;
+  }
+
+  .salesAgent-input-box {
+    flex: 1;
+    min-width: 180px;
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    padding: 6px 8px;
+    font-size: 14px;
+    color: #1f2937;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+      sans-serif;
+  }
+
+  .source-input-box {
+    flex: 1;
+    min-width: 180px;
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    padding: 6px 8px;
+    font-size: 14px;
+    color: #1f2937;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+      sans-serif;
+  }
+
+  .leadName-input-box {
+    flex: 1;
+    min-width: 180px;
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    padding: 6px 8px;
+    font-size: 14px;
+    color: #1f2937;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+      sans-serif;
+  }
+
+  button {
+    background: #6366f1;
+    color: #ffffff;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 6px;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+      sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 1.5rem;
+  }
+  .toast-green-style {
+    position: fixed;
+    top: 20px;
+    background-color: #22c55e;
+    color: #ffffff;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+      sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 12px 24px;
+    border-radius: 6px;
+    border: 1px solid #16a34a;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  .toast-red-style {
+    position: fixed;
+    top: 20px;
+    background-color: #ef4444;
+    color: #ffffff;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+      sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 12px 24px;
+    border-radius: 6px;
+    border: 1px solid #dc2626;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+}
+
+@media (width: 412px), (width: 414px), (width: 430px) {
+  .container {
+    margin:90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+  }
+  .form-design {
+    padding: 15px;
+  }
+}
+
+@media (width:344px){
+
+  .toast-green-style {
+    position: fixed;
+    top: 10px;
+    left:95px;
+   background-color: #22c55e;
+    color: #ffffff;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+      sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 12px 24px;
+    border-radius: 6px;
+    border: 1px solid #16a34a;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  .toast-red-style {
+    position: fixed;
+    top: 20px;
+    background-color: #ef4444;
+    color: #ffffff;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+      sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 12px 24px;
+    border-radius: 6px;
+    border: 1px solid #dc2626;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+}
