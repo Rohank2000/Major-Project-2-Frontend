@@ -18,6 +18,7 @@ React 19, Vite 8, Axios, react-select, ESLint and more to be updated in future.
 - `npm run lint` – run ESLint
 
 ## Project Structure
+
 src/
 ├── App.jsx
 ├── App.css
@@ -28,6 +29,7 @@ src/
 │   └── useToast.jsx
 └── pages/
     └── leadForm.jsx
+
 
 ## Environment Variables
 | Variable        | Description           |
