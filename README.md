@@ -47,7 +47,7 @@ npm install
 Create a `.env` file in the project root:
 
 ```env
-VITE_BASE_URL=https://major-project-2-backend-wfk4.onrender.com
+VITE_BASE_URL=https://major-project-2-backend.vercel.app
 ```
 
 | Variable | Description |
@@ -182,7 +182,7 @@ New → Contacted → Qualified → Proposal Sent → Closed
 ## 🌐 Deployment
 
 - Frontend: Vercel / Netlify (Vite build output `dist/`)
-- Backend: `https://major-project-2-backend-wfk4.onrender.com` (example)
+- Backend: `https://major-project-2-backend.vercel.app` (example)
 
 Set `VITE_BASE_URL` in your hosting provider's environment variables before deploying.
 
