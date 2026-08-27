@@ -19,6 +19,12 @@ const DashBoard = () => {
     const filterLeadForQualified = LeadsData?.lead?.filter((item) => item.status === "Qualified") ?? [];
     const filterLeadForQualifiedTotalCount = filterLeadForQualified.length;
 
+    const filterLeadForProposalSent = LeadsData?.lead?.filter((item) => item.status === "Proposal Sent") ?? [];
+    const filterLeadForProposalSentTotalCount = filterLeadForProposalSent.length;
+
+    const filterLeadForClosed = LeadsData?.lead?.filter((item) => item.status === "Closed") ?? [];
+    const filterLeadForClosedTotalCount = filterLeadForClosed.length;
+
     const last3LeadsData = LeadsData?.lead?.slice(-3);
 
     const { setIsModalOpen } = useContext(AgentModalContext);
@@ -62,6 +68,8 @@ const DashBoard = () => {
                                         <li> - New: [{filterLeadForNewTotalCount}] Leads </li>
                                         <li>- Contacted: [{filterLeadForContactedTotalCount}] Leads</li>
                                         <li>- Qualified: [{filterLeadForQualifiedTotalCount}] Leads </li>
+                                        <li>- Proposal Sent: [{filterLeadForProposalSentTotalCount}] Leads </li>
+                                        <li>- Closed: [{filterLeadForClosedTotalCount}] Leads </li>
                                     </div>
                                 )}
                             </ul>

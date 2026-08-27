@@ -17,7 +17,7 @@ import './CSS/lead-management.css';
 import './CSS/salesAgentManagement.css';
 import './CSS/report-Screen.css';
 import './CSS/leadStatusView.css';
-import "./CSS/leadsOfSalesAgent.css";
+import './CSS/leadsBySalesAgent.css';
 import './CSS/leadList.css';
 import './CSS/useToast.css';
 import './CSS/totalLeadClosedPieChartStyle.css';

@@ -14,15 +14,19 @@ const getleadsInPipelineUrl = `${BASE_URL}/report/pipeline`;
 
 const getLeadClosedBySalesAgentUrl = `${BASE_URL}/report/closed-by-agent`;
 
+const getLeadsClosedByLastWeekUrl = `${BASE_URL}/report/last-week`;
+
 const {data:leadData,loading:leadLoading,error:leadError} = useAxios(getLeadDataUrl,[]);
 
 const {data:totalLeadsInPipelineData,loading:totalLeadsInPipelineLoading,error:totalLeadsInPipelineError} = useAxios(getleadsInPipelineUrl,[]);
 
 const {data:closedBySalesAgentData,loading:closedBySalesAgentLoading,error:closedBySalesAgentError} = useAxios(getLeadClosedBySalesAgentUrl,[])
 
-const totalLeadsClosed = leadData?.lead?.filter((item)=>item.status==="Closed") ?? [];
+const {data:leadsClosedByLastWeekData, loading:leadsClosedByLastWeekLoading, error:leadsClosedByLastWeekError} = useAxios(getLeadsClosedByLastWeekUrl,[]);
 
-const totalLeadsClosedCount = totalLeadsClosed.length;
+const totalLeadsClosedByLastWeek = leadsClosedByLastWeekData?.leadsClosedLastWeek ?? [];
+
+const totalLeadsClosedByLastWeekCount = totalLeadsClosedByLastWeek?.length;
 
 const totalLeadsInPipelineCount = totalLeadsInPipelineData?.totalLeadsInPipeline;    
 
@@ -53,7 +57,7 @@ return(
 <div className="centering-the-heading">
     <h3>Total Leads closed and in Pipeline: </h3>
     <div>
-{<LeadClosedPipelinePieChart closedCount={totalLeadsClosedCount} pipelineCount={totalLeadsInPipelineCount} />}
+{<LeadClosedPipelinePieChart closedCount={totalLeadsClosedByLastWeekCount} pipelineCount={totalLeadsInPipelineCount} />}
     </div>
 </div>
 <div className="centering-the-heading-2">

@@ -1,7 +1,6 @@
-import { useState, useContext, useMemo } from "react";
+import { useState, useContext} from "react";
 import axios from "axios";
 import useAxios from "../hooks/useAxiosGET";
-import useToast from "../hooks/useToast";
 import { LeadModalContext } from "../context/LeadModalContext";
 
 const useAddNewLead = (parentTriggerToast) => {
@@ -30,14 +29,7 @@ const useAddNewLead = (parentTriggerToast) => {
 
     const agentList = agentData?.allAgents;
 
-    const tagOptions = useMemo(() =>
-        tagData?.tag?.map((item) => ({ value: item.name, label: item.name })),
-        [tagData]
-    );
-
-    const { toastMessage, showToast, triggerToast } = useToast(null);
-
-    const notify = parentTriggerToast || triggerToast;
+    const tagOptions = tagData?.tag?.map((item) => ({ value: item.name, label: item.name }));
 
     const handleLeadFormFields = (event) => {
         const { name, value } = event.target;
@@ -51,12 +43,12 @@ const useAddNewLead = (parentTriggerToast) => {
 
         try {
             const postRequest = await axios.post(postNewLeadUrl, leadFormData);
-            notify(postRequest.data.message);
+            parentTriggerToast(postRequest.data.message);
         } catch (error) {
             if (error.response) {
-                notify(error.response.data?.message || error.response.data?.error || "An error occurred");
+                parentTriggerToast(error.response.data?.message || error.response.data?.error || "An error occurred");
             } else {
-                notify(error.message);
+                parentTriggerToast(error.message);
             }
         } finally {
             setFormLoading(false);
