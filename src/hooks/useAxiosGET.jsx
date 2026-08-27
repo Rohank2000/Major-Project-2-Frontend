@@ -7,6 +7,11 @@ const useAxios = (url, initialValue) => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
+        if (!url || url.includes("undefined")) {
+            setLoading(false);
+            setData(initialValue);
+            return;
+        }
         setError(null);
         setLoading(true);
         const getData = async () => {

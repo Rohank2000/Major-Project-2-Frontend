@@ -12,7 +12,6 @@ const useToast = (message) => {
             setShowToast(false);
             setToastMessage("");
             window.location.reload();
- 
         }, 3000);
     }
     return { toastMessage, showToast, triggerToast }

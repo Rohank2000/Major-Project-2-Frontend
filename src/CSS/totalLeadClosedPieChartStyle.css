@@ -1,0 +1,13 @@
+.totalLeadClosedPieChart {
+max-width: 400px;
+margin: auto;
+padding: 15px;    
+}
+
+@media (max-width:768px) {
+.totalLeadClosedPieChart {
+max-width: 400px;
+margin: 15px auto 15px auto;    
+padding: 15px auto 15px auto;    
+}
+}

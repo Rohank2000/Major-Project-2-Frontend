@@ -1,0 +1,268 @@
+.report-screen-container-style {
+background-color: gainsboro;    
+}
+
+@media (max-width:768px) {
+.centering-the-heading {
+text-align: center;    
+position: relative;
+}
+
+.centering-the-heading::after {
+content: "";
+position: absolute;
+top: 40px;
+right: 0;
+left: 0;
+height: 0.7px;
+background: black;    
+}
+
+.centering-the-heading h3 {
+padding-top: 5px;
+padding-bottom: 10px;    
+}
+
+.centering-the-heading-2 {
+position: relative;    
+}
+
+.centering-the-heading-2::after {
+content: "";
+position: absolute;
+top: -15px;
+right: 0;
+left: 0;
+height: 0.7px;
+background: black;        
+}
+
+.centering-the-heading-2 h3 {
+text-align: center;
+padding-top: 5px;
+padding-bottom: 10px;        
+position: relative;
+}
+
+.centering-the-heading-2 h3::after {
+content: "";
+position: absolute;
+top: 40px;
+right: 0;
+left: 0;
+height: 0.7px;
+background: black;    
+}
+
+.centering-the-heading-3 {
+position: relative;    
+}
+
+.centering-the-heading-3::after {
+content: "";
+position: absolute;
+top: -15px;
+right: 0;
+left: 0;
+height: 0.7px;
+background: black;    
+}
+
+.centering-the-heading-3 h3 {
+text-align: center;    
+padding-top: 5px;
+padding-bottom: 10px;        
+position: relative;
+}
+
+.centering-the-heading-3 h3::after {
+content: "";
+position: absolute;
+top: 40px;
+right: 0;
+left: 0;
+height: 0.7px;
+background: black;    
+}
+
+.sidebar-report-overview-aligner {
+display: flex;
+justify-content: flex-start;
+}
+
+.report-sidebar-screen {
+display: none;}
+
+.report-sidebar-screen::after {
+display: none;
+}
+
+.report-sidebar-screen h3 {
+display: none;
+}
+
+.report-screen-sidebar-back-to-dashboard-outer-card {
+display: none;
+}
+
+.report-screen-sidebar-back-to-dashboard-button-style {
+display: none;
+}
+
+.report-screen-sidebar-back-to-dashboard-button-style:hover {
+    display: none;
+}
+
+.report-screen-sidebar-back-to-dashboard-button-style button {
+    display: none;
+}
+
+.report-overview-column {
+flex: 1;    
+}
+
+}
+
+@media (min-width:769px) {
+.centering-the-heading {
+text-align: center;    
+position: relative;
+}
+
+.centering-the-heading::after {
+content: "";
+position: absolute;
+top: 40px;
+right: 0;
+left: 0;
+height: 0.7px;
+background: black;    
+}
+
+.centering-the-heading h3 {
+padding-top: 5px;
+padding-bottom: 10px;    
+}
+
+.centering-the-heading-2 {
+position: relative;    
+}
+
+.centering-the-heading-2::after {
+content: "";
+position: absolute;
+top: -15px;
+right: 0;
+left: 0;
+height: 0.7px;
+background: black;        
+}
+
+.centering-the-heading-2 h3 {
+text-align: center;
+padding-top: 5px;
+padding-bottom: 10px;        
+position: relative;
+}
+
+.centering-the-heading-2 h3::after {
+content: "";
+position: absolute;
+top: 40px;
+right: 0;
+left: 0;
+height: 0.7px;
+background: black;    
+}
+
+.centering-the-heading-3 {
+position: relative;    
+}
+
+.centering-the-heading-3::after {
+content: "";
+position: absolute;
+top: -15px;
+right: 0;
+left: 0;
+height: 0.7px;
+background: black;    
+}
+
+.centering-the-heading-3 h3 {
+text-align: center;    
+padding-top: 5px;
+padding-bottom: 10px;        
+position: relative;
+}
+
+.centering-the-heading-3 h3::after {
+content: "";
+position: absolute;
+top: 40px;
+right: 0;
+left: 0;
+height: 0.7px;
+background: black;    
+}
+
+.sidebar-report-overview-aligner {
+display: flex;
+justify-content: flex-start;
+}
+
+.report-sidebar-screen {
+flex: 0 0 300px;    
+position: relative;
+}
+
+.report-sidebar-screen::after {
+content: "";
+position: absolute;
+top: -2px;
+bottom: 0;
+right: 0;
+width: 0.7px;
+background: black;
+}
+
+.report-sidebar-screen h3 {
+margin: 30px 0px 6px 40px;    
+}
+
+.report-screen-sidebar-back-to-dashboard-outer-card {
+border: none;
+border-radius: 8px;
+background-color: #455A64;
+padding: 35px 13px 255px 13px;
+margin: 0px 50px 0px 40px;
+text-align: center;    
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.report-screen-sidebar-back-to-dashboard-button-style {
+margin: 0px;
+border: none;
+border-radius: 8px;
+padding: 5px 8px 0px 8px;
+font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+font-size: medium;
+font-weight: bolder;
+cursor: pointer;
+background-color: #B0BEC5;
+color: white;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.report-screen-sidebar-back-to-dashboard-button-style:hover {
+background-color:  #263238;    
+}
+
+.report-screen-sidebar-back-to-dashboard-button-style button {
+    display: none;
+}
+
+.report-overview-column {
+flex: 1;    
+}
+}
