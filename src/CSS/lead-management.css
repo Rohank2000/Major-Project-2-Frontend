@@ -49,7 +49,7 @@
   .lead-management-border-around-h2::after {
     content: "";
     position: absolute;
-    top: 65px;
+    top: 70px;
     left: 0;
     right: 0;
     height: 0.7px;
@@ -400,7 +400,7 @@
   .lead-management-aside h3::after {
     content: "";
     position: absolute;
-    top: 472px;
+    top: 467px;
     left: -38px;
     right: 0;
     height: 0.7px;
