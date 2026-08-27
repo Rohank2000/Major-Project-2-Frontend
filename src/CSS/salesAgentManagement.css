@@ -273,23 +273,29 @@ background-color:#fde68a;
 
 @media (max-width:643px) {
 
-.cross-cancel-button-style {
+.sales-agent-cross-cancel-button-style {
 position: absolute;
-top: -5px;
+top: 20px;
 right: 20px;
+width: 36px;
+height: 36px;
+display: flex;
+align-items: center;
+justify-content: center;
 border: none;
 background-color: #ec407a;
 color: white;
 font-weight: bold;
-font-size: 40px;
+font-size: 28px;
 line-height: 1;
 border-radius: 4px;
 cursor: pointer;
-padding: 0px 8px 8px 8px;
+padding: 0;
 box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+z-index: 1;
 }    
 
-.cross-cancel-button-style:hover {
+.sales-agent-cross-cancel-button-style:hover {
 background-color: #880e4f;
 }    
 
@@ -353,8 +359,26 @@ gap: 14px;
 margin-right: 18px;    
 }
 
+.sales-agent-form-button-align>.form-submit-button{
+background-color: #0d47a1;
+color: white;
+border: none;
+padding: 10px 24px;
+border-radius: 6px;
+font-weight: 600;
+cursor: pointer;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
 .sales-agent-form-button-align>.cancel-form-button{
-background-color: grey;    
+background-color: grey;
+color: white;
+border: none;
+padding: 10px 24px;
+border-radius: 6px;
+font-weight: 600;
+cursor: pointer;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .sales-agent-form-button-align>.form-submit-button:hover {
@@ -371,23 +395,29 @@ background-color: darkslategray;
 
 @media (min-width:644px) {
 
-.cross-cancel-button-style {
+.sales-agent-cross-cancel-button-style {
 position: absolute;
-top: -4px;
+top: 20px;
 right: 20px;
+width: 36px;
+height: 36px;
+display: flex;
+align-items: center;
+justify-content: center;
 border: none;
 background-color: #ec407a;
 color: white;
 font-weight: bold;
-font-size: 40px;
+font-size: 28px;
 line-height: 1;
 border-radius: 4px;
 cursor: pointer;
-padding: 0px 8px 8px 8px;
+padding: 0;
 box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+z-index: 1;
 }    
 
-.cross-cancel-button-style:hover {
+.sales-agent-cross-cancel-button-style:hover {
 background-color: #880e4f;
 }
 
@@ -450,8 +480,26 @@ gap: 14px;
 margin-right: 18px;    
 }
 
+.sales-agent-form-button-align>.form-submit-button{
+background-color: #0d47a1;
+color: white;
+border: none;
+padding: 10px 24px;
+border-radius: 6px;
+font-weight: 600;
+cursor: pointer;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
 .sales-agent-form-button-align>.cancel-form-button{
-background-color: grey;    
+background-color: grey;
+color: white;
+border: none;
+padding: 10px 24px;
+border-radius: 6px;
+font-weight: 600;
+cursor: pointer;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .sales-agent-form-button-align>.form-submit-button:hover {

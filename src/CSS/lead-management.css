@@ -49,7 +49,7 @@
   .lead-management-border-around-h2::after {
     content: "";
     position: absolute;
-    top: 85px;
+    top: 65px;
     left: 0;
     right: 0;
     height: 0.7px;
@@ -176,10 +176,12 @@
     width: 100%;
     max-width: 400px;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    font-size: small;
+    font-size: medium;
     font-weight: bold;
+    padding: 10px 0px 10px 0px;
     margin: 0px;
     border: 0px solid;
+    border-radius: 8px;
     background-color: #ec407a;
     cursor: pointer;
     box-shadow: 0 4px 12px rgba(236, 64, 122, 0.35), 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -336,13 +338,14 @@
     width: 100%;
     max-width: 400px;
     margin: 18px 0px;
-    padding: 10px 10px;
+    padding: 20px 20px;
+    border-radius: 8px;
     background-color: #AB47BC;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    font-size: small;
+    font-size: medium;
     font-weight: bold;
     cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 12px rgba(236, 64, 122, 0.35), 0 2px 4px rgba(0, 0, 0, 0.2);
   }
 
   .lead-management-comment-button-styles button:hover {
@@ -397,7 +400,7 @@
   .lead-management-aside h3::after {
     content: "";
     position: absolute;
-    top: 467px;
+    top: 472px;
     left: -38px;
     right: 0;
     height: 0.7px;
@@ -523,12 +526,14 @@
 
   .lead-management-edit-details-styles button {
     width: 100%;
-    max-width: 370px;
+    max-width: 400px;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    font-size: small;
+    font-size: medium;
     font-weight: bold;
+    padding: 10px 0px 10px 0px;
     margin: 0px;
     border: 0px solid;
+    border-radius: 8px;
     background-color: #ec407a;
     cursor: pointer;
     box-shadow: 0 4px 12px rgba(236, 64, 122, 0.35), 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -687,12 +692,14 @@
     max-width: 400px;
     margin: 8px 0px;
     padding: 20px 20px;
+    border-radius: 8px;
     background-color: #AB47BC;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     font-size:large;
     font-weight: bold;
     cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 12px rgba(236, 64, 122, 0.35), 0 2px 4px rgba(0, 0, 0, 0.2);
+
   }
 
   .lead-management-comment-button-styles button:hover {
@@ -733,13 +740,15 @@
 
   .modal-close-button {
     position: absolute;
-    top: -4px;
+    top: 20px;
+    width: 36px;
+    height: 36px;
     right: 20px;
     border: none;
     background-color: #ec407a;
     color: white;
     font-weight: bold;
-    font-size: 40px;
+    font-size: 35px;
     line-height: 1;
     border-radius: 4px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
@@ -797,11 +806,38 @@
   .form-button-styling {
     display: flex;
     justify-content:space-evenly;
+    gap: 14px;
+  }
+
+  .form-button-styling>.submit-button {
+background-color: #0d47a1;
+color: white;
+border: none;
+padding: 10px 24px;
+border-radius: 6px;
+font-weight: 600;
+cursor: pointer;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   }
 
   .form-button-styling>.cancel-button {
 background-color: grey;
-  } 
+color: white;
+border: none;
+padding: 10px 24px;
+border-radius: 6px;
+font-weight: 600;
+cursor: pointer;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .form-button-styling>.submit-button:hover {
+background-color: darkblue;
+  }
+
+  .form-button-styling>.cancel-button:hover {
+background-color: darkslategrey;
+  }
 }
 
 @media (min-width:644px) {
@@ -840,18 +876,20 @@ background-color: grey;
 
   .modal-close-button {
     position: absolute;
-    top: -4px;
+    top: 20px;
+    width: 36px;
+    height: 36px;
     right: 20px;
     border: none;
     background-color: #ec407a;
     color: white;
     font-weight: bold;
-    font-size: 40px;
+    font-size: 35px;
     line-height: 1;
     border-radius: 4px;
-    cursor: pointer;
-    padding: 0px 8px 8px 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    padding: 0px 8px 8px 8px;  
   }
 
   .modal-close-button:hover {
@@ -912,8 +950,26 @@ background-color: grey;
     /* padding-bottom: 30px;   */
   }
 
+  .form-button-styling>.submit-button {
+background-color: #0d47a1;
+color: white;
+border: none;
+padding: 10px 24px;
+border-radius: 6px;
+font-weight: 600;
+cursor: pointer;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
   .form-button-styling>.cancel-button {
 background-color: grey;
+color: white;
+border: none;
+padding: 10px 24px;
+border-radius: 6px;
+font-weight: 600;
+cursor: pointer;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   }
 
   .form-button-styling>.submit-button:hover {

@@ -76,7 +76,7 @@ const Header = () => {
 <div className="sales-agent-List-Modal-Overlay" onClick={()=>setIsModalOpen(false)}>
     <div className="sales-agent-List-Modal-Content" onClick={(event)=>event.stopPropagation()}>
         <form className="sales-agent-list-form" onSubmit={handleAgentFormSubmit}>
-                <button className="cross-cancel-button-style" onClick={()=>setIsModalOpen(false)}>
+                <button className="sales-agent-cross-cancel-button-style" onClick={()=>setIsModalOpen(false)}>
                     &times;
                 </button>
             <h2>Add New Sales Agent</h2>

@@ -61,7 +61,7 @@ display: none;
     top: 40px;
     right: 0;
     left: 0;
-    height: 0.7px;
+    height: 0.5px;
     background: black;
 }
 
@@ -110,7 +110,7 @@ display: none;
     top: 150px;
     right: 0;
     left: 0;
-    height: 0.7px;
+    height: 0.5px;
     background: black;
 }
 
@@ -163,21 +163,20 @@ display: none;
 }
 
 .leads-By-SalesAgent-clear-filter {
-    position: absolute;
-    top: -15px;
-    right: 30px;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    font-size:x-small;
-    font-weight: bold;
-    cursor: pointer;
-    background-color: #ef4444;
-    color: white;
-    border: 2px solid #374151;
-    border-radius: 8px;
-    padding: 0px 5px 0px 5px;
-    margin-right:8px;
-    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.25);
-    z-index: 1;
+        position: absolute;
+        top: 5px;
+        right: 37px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 12px;
+        font-weight: bold;
+        cursor: pointer;
+        background-color: #ef4444;
+        color: white;
+        border: 2px solid #374151;
+        border-radius: 8px;
+        padding: 1px 5px;
+        box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.25);
+        z-index: 1;
 }
 
 .leads-By-SalesAgent-clear-filter:hover {
@@ -191,10 +190,10 @@ display: none;
 .leads-By-SalesAgent-upper-divider-line::after {
     content: "";
     position: absolute;
-    bottom: 410px;
+    top: -35px;
     right: 0;
     left: 0;
-    height: 0.7px;
+    height: 0.5px;
     background: black;
 }
 
@@ -204,6 +203,7 @@ display: none;
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
 }
 
 .leads-By-SalesAgent-filter-style {
@@ -354,6 +354,7 @@ display: none;
     font-weight: bolder;
     cursor: pointer;
     background-color: #B0BEC5;
+    color: white;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
@@ -486,18 +487,17 @@ display: none;
 
 .leads-By-SalesAgent-clear-filter {
     position: absolute;
-    top: -15px;
-    right: 30px;
+    top: 5px;
+    right: 37px;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    font-size:x-small;
+    font-size: 12px;
     font-weight: bold;
     cursor: pointer;
     background-color: #ef4444;
     color: white;
     border: 2px solid #374151;
     border-radius: 8px;
-    padding: 0px 5px 0px 5px;
-    margin-right:8px;
+    padding: 1px 5px;
     box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.25);
     z-index: 1;
 }
@@ -513,10 +513,10 @@ display: none;
 .leads-By-SalesAgent-upper-divider-line::after {
     content: "";
     position: absolute;
-    bottom: 280px;
+    top: -50px;
     right: 0;
     left: 0;
-    height: 0.7px;
+    height: 0.5px;
     background: black;
 }
 
@@ -581,6 +581,7 @@ display: none;
     background-color: #ffffff;
     min-width: 0;
     box-sizing: border-box;
+    position: relative;
 }
 
 .leads-By-SalesAgent-filter-style {
