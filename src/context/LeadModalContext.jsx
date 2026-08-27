@@ -2,7 +2,7 @@ import { createContext, useState } from "react";
 
 export const LeadModalContext = createContext();
 
-const LeadModalProvider = ({ children }) => {
+export const LeadModalProvider = ({ children }) => {
     const [isLeadModalOpen, setIsLeadModalOpen] = useState(false);
 
     return (

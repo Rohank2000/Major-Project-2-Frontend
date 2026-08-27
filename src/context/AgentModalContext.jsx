@@ -2,7 +2,7 @@ import { createContext, useState } from "react";
 
 export const AgentModalContext = createContext();
 
- const AgentModalProvider = ({ children }) => {
+export const AgentModalProvider = ({ children }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     return (
