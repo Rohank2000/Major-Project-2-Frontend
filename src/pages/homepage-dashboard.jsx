@@ -49,7 +49,6 @@ const DashBoard = () => {
                             </Link>                            <Link to="/report-screen">
                                 <li>Reports</li>
                             </Link>
-                            <li>Settings</li>
                         </ul>
                     </aside>
                     <section className="homepage-section-body">

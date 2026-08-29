@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Select from "react-select";
 import axios from "axios";
 import useToast from "../hooks/useToast";
+import useDeleteLead from "../hooks/useDeleteLead";
 
 const LeadManagement = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -26,6 +27,7 @@ const LeadManagement = () => {
     const [formLoading, setFormLoading] = useState(false);
     const [commentFormLoading, setCommentFormLoading] = useState(false);
     const { toastMessage, showToast, triggerToast } = useToast(null);
+    const { deleteLead, deleting: deleteLoading } = useDeleteLead(triggerToast);
 
     const BASE_URL = import.meta.env.VITE_BASE_URL
 
@@ -151,6 +153,23 @@ const LeadManagement = () => {
                             <div className="lead-management-edit-details-styles">
                                 <button onClick={() => setIsModalOpen(true)}>
                                     Edit Lead Details
+                                </button>
+                            </div>
+                            <div className="lead-management-delete-styles">
+                                <button
+                                    className="delete-lead-button"
+                                    onClick={() => deleteLead(leadId)}
+                                    disabled={deleteLoading || leadsLoading || !presentLeadDetails}
+                                    title="Delete this lead permanently"
+                                >
+                                    {deleteLoading ? (
+                                        "Deleting..."
+                                    ) : (
+                                        <>
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="currentColor"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/></svg>
+                                            Delete Lead
+                                        </>
+                                    )}
                                 </button>
                             </div>
                             <h2>Comments Section</h2>

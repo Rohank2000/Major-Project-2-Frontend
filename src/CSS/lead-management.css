@@ -352,6 +352,45 @@
     background-color: #4A148C;
   }
 
+  .lead-management-delete-styles {
+    padding: 12px 0 18px 0;
+    margin: 0;
+    position: relative;
+  }
+  .lead-management-delete-styles::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: -37px;
+    right: -40px;
+    height: 0.8px;
+    background: black;
+  }
+
+.delete-lead-button {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: medium;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  padding: 11px 18px;
+  border: none;
+  border-radius: 8px;
+  background:#dc2626;
+  color: black;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.35), 0 2px 4px rgba(0, 0, 0, 0.18);
+}
+
+.delete-lead-button:hover {
+background-color: darkred;  
+}
+
 }
 
 @media (min-width:769px) {
@@ -400,7 +439,7 @@
   .lead-management-aside h3::after {
     content: "";
     position: absolute;
-    top: 467px;
+    top: 501px;
     left: -38px;
     right: 0;
     height: 0.7px;
@@ -614,7 +653,7 @@
     bottom: 0;
     left: 0;
     right: -40px;
-    height: 1px;
+    height: 0.7px;
     background: black;
   }
 
@@ -705,6 +744,48 @@
   .lead-management-comment-button-styles button:hover {
     background-color: #4A148C;
   }
+
+  .lead-management-delete-styles::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: -40px;
+    height: 0.7px;
+    background: black;
+  }
+  
+.lead-management-delete-styles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 17px 15px 18px 15px;
+  position: relative;
+}
+
+.delete-lead-button {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: medium;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  padding: 11px 18px;
+  border: none;
+  border-radius: 8px;
+  background:#dc2626;
+  color: black;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.35), 0 2px 4px rgba(0, 0, 0, 0.18);
+}
+
+.delete-lead-button:hover {
+background-color: darkred;  
+}
 
 }
 
