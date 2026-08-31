@@ -1,14 +1,17 @@
 import useAxios from "../hooks/useAxiosGET";
-import { useState, useContext } from "react";
+import { useState, useEffect } from "react";
 import SortLeads from "../hooks/sortLeads";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import useAddNewLead from "../hooks/useAddNewLead";
 
 const LeadList = () => {
+    const [searchParams, setSearchParams] = useSearchParams();
 
     const [filter, setFilter] = useState({
-        status: "",
-        salesAgent: ""
+        status: searchParams.get("status") || "",
+        salesAgent: searchParams.get("salesAgent") || "",
+        tags: searchParams.get("tags") || "",
+        source: searchParams.get("source") || ""
     });
 
     const [priority, setPriority] = useState("");
@@ -16,29 +19,45 @@ const LeadList = () => {
 
     const BASE_URL = import.meta.env.VITE_BASE_URL;
 
-    const getLeadUrl = `${BASE_URL}/leads?status=${filter.status}&salesAgent=${filter.salesAgent}`;
+    const getLeadUrl = `${BASE_URL}/leads?status=${filter.status}&salesAgent=${filter.salesAgent}&tags=${filter.tags}&source=${filter.source}`;
     const getSalesAgentUrl = `${BASE_URL}/agents`;
+    const getLeadTagUrl = `${BASE_URL}/tags`;
 
     const { data: agentData, loading: agentLoading, error: agentError } = useAxios(getSalesAgentUrl, []);
     const { data: leadData, loading: leadLoading, error: leadError } = useAxios(getLeadUrl, []);
+    const { data: TagData, loading: TagLoading, error: TagError } = useAxios(getLeadTagUrl, []);
 
     const agent = agentData?.allAgents;
     const fetchedLeadData = leadData?.lead;
+    const Tag = TagData?.tag;
 
     const { setIsLeadModalOpen } = useAddNewLead();
 
+    useEffect(() => {
+        setFilter({
+            status: searchParams.get("status") || "",
+            salesAgent: searchParams.get("salesAgent") || "",
+            tags: searchParams.get("tags") || "",
+            source: searchParams.get("source") || ""
+        });
+    }, [searchParams]);
 
     const handleFilter = (event) => {
         const { name, value } = event.target;
-
-        setFilter((Prevfilter) => ({ ...Prevfilter, [name]: value }));
-
+        const filterValue = { ...filter, [name]: value };
+        setFilter(filterValue);
+        const NonEmptyFilterValue = Object.fromEntries(Object.entries(filterValue).filter(([,value])=>value));
+        setSearchParams(NonEmptyFilterValue);
     }
 
     const handleClearFilter = () => {
-        setFilter({ status: "", salesAgent: "" });
+        setFilter({
+            status: "", salesAgent: "", tags: "",
+            source: ""
+        });
         setPriority("");
         setTimeToClose("");
+        setSearchParams({});
     }
 
     const sortedLeadData = SortLeads(fetchedLeadData, priority, timeToClose);
@@ -71,8 +90,8 @@ const LeadList = () => {
                                         </div>
                                     ) : (
                                         sortedLeadData?.map((item, index) => (
-                                            <Link to={`/lead-management/${item._id}`} key={index}>   
-                                            <li>{item.name} - {item.status} - {item.salesAgent?.name}</li>
+                                            <Link to={`/lead-management/${item._id}`} key={index}>
+                                                <li>{item.name} - {item.status} - {item.salesAgent?.name}</li>
                                             </Link>
                                         ))
                                     )}
@@ -83,6 +102,7 @@ const LeadList = () => {
                                     <button className="clear-filter-button" onClick={handleClearFilter}>Clear Filter</button>
                                     <div className="d-flex-horizontally-1">
                                         <label htmlFor="filter">Filters:</label>
+
                                         <select name="status" id="filter" value={filter.status} onChange={handleFilter}>
                                             <option value="" disabled>Select Status</option>
                                             <option value="New">New</option>
@@ -97,6 +117,26 @@ const LeadList = () => {
                                                 <option key={index} value={item._id}>{item.name}</option>
                                             ))}
                                         </select>
+
+                                        <select name="tags" id="filter" value={filter.tags} onChange={handleFilter}>
+                                            <option value="" disabled>Select Tag</option>
+                                            {TagLoading ? "Loading..." : TagError ? "Error Occured" : Tag?.map((item, index) => (
+                                                <div key={index}>
+                                                    <option value={item.name}>{item.name}</option>
+                                                </div>
+                                            ))}
+                                        </select>
+                                        <select name="source" id="filter" value={filter.source} onChange={handleFilter}>
+                                            <option value="" disabled>Select Source</option>
+                                            <option value="Website">Website</option>
+                                            <option value="Referral">Referral</option>
+                                            <option value="Cold Call">Cold Call</option>
+                                            <option value="Advertisement">Advertisement</option>
+                                            <option value="Email">Email</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+
+
                                     </div>
                                     <div className="d-flex-horizontally-2">
                                         <label htmlFor="sort-by">Sort By:</label>

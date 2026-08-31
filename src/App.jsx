@@ -36,7 +36,7 @@ function App() {
             <Routes>
             <Route path="/" element={<DashBoard />} />
             <Route path="/lead-management/:leadId" element={<LeadManagement />} />
-            <Route path="/leadList" element={<LeadList />} />
+            <Route path="/leads" element={<LeadList />} />
             <Route path="/salesAgentManagement" element={<SalesAgentManagement />} />
             <Route path="/report-screen" element={<ReportScreen />}/>
             <Route path="/leadStatusView/:statusCategory" element={<LeadStatusView />} />

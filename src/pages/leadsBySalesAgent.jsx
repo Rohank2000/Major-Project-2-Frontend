@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 import useAxios from "../hooks/useAxiosGET";
 
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 import { useParams } from "react-router-dom";
 
@@ -16,17 +16,27 @@ const LeadsOfSalesAgent = () => {
 
     const { toastMessage, showToast, triggerToast } = useToast(null);
 
+    const [searchParams, setSearchParams] = useSearchParams();
+
+    const [filter, setFilter] = useState({
+            priority:searchParams.get("priority") || "",
+            status: searchParams.get("status") || "",
+        });
+
+    useEffect(() => {
+        setFilter({
+            priority: searchParams.get("priority") || "",
+            status: searchParams.get("status") || "",
+        });
+    }, [searchParams]);
+
+
     useEffect(() => {
         if (!salesAgentId) {
             triggerToast("Sales Agent ID is missing.");
             return
         }
     }, [salesAgentId]);
-
-    const [filter, setFilter] = useState({
-            priority: "",
-            status: ""
-        });
     
     const [timeToClose, setTimeToClose] = useState("");
 
@@ -46,13 +56,21 @@ const LeadsOfSalesAgent = () => {
 
     const filteredLeadsData = SortLeads2(filteredLeadDataBysalesAgent, timeToClose);
 
+     const handleFilter = (event) => {
+        const { name, value } = event.target;
+        const filterValue = { ...filter, [name]: value };
+        setFilter(filterValue);
+        const NonEmptyFilterValue = Object.fromEntries(Object.entries(filterValue).filter(([,value])=>value));
+        setSearchParams(NonEmptyFilterValue);
+    }
+
     const handleClearFilter = ()=>{
     setFilter({
     status:"",
     priority:""    
     });
-    
-setTimeToClose("");    
+    setTimeToClose("");
+    setSearchParams({});    
     }
 
     return (
@@ -102,7 +120,7 @@ Clear filter
                         <div className="leads-By-SalesAgent-filter-sortBy-centering">
                             <div className="leads-By-SalesAgent-filter-style">
                                 <label htmlFor="label-filter">Filters: </label>
-                                <select name="status" id="label-filter" value={filter.status} onChange={(event) => setFilter({...filter, status: event.target.value})}>
+                                <select name="status" id="label-filter" value={filter.status} onChange={handleFilter}>
                                     <option value="" disabled>Select Lead Status</option>
                                     <option value="New">New</option>
                                     <option value="Contacted">Contacted</option>
@@ -110,7 +128,7 @@ Clear filter
                                     <option value="Proposal Sent">Proposal Sent</option>
                                     <option value="Closed">Closed</option>
                                 </select>
-                                <select name="priority" id="label-filter" value={filter.priority} onChange={(event) => setFilter({...filter, priority: event.target.value})}>
+                                <select name="priority" id="label-filter" value={filter.priority} onChange={handleFilter}>
                                     <option value="" disabled>Select Priority</option>
                                     <option value="High">High</option>
                                     <option value="Medium">Medium</option>

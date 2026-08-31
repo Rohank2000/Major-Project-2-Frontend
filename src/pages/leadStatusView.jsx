@@ -1,5 +1,5 @@
 import useAxios from "../hooks/useAxiosGET";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import SortLeads2 from "../hooks/sortLeads2";
@@ -7,9 +7,11 @@ import useToast from "../hooks/useToast";
 
 const LeadStatusView = () => {
 
+    const [searchParams, setSearchParams] = useSearchParams();
+
     const [filter, setFilter] = useState({
-        salesAgent: "",
-        priority: ""
+        salesAgent: searchParams.get("salesAgent") || "",
+        priority: searchParams.get("priority") || "",
     });
 
     const [timeToClose, setTimeToClose] = useState("");
@@ -39,22 +41,33 @@ const LeadStatusView = () => {
 
     const { data: agentData, loading: agentLoading, error: agentError } = useAxios(getSalesAgentUrl, []);
 
+    useEffect(() => {
+        setFilter({
+            salesAgent: searchParams.get("salesAgent") || "",
+            priority: searchParams.get("priority") || "",
+        });
+    }, [searchParams]);
+
     const handleFilterValue = (event) => {
         const { name, value } = event.target;
+        
+        const filterValue = { ...filter, [name]: value };
 
-        setFilter((prevFilterValue) => ({ ...prevFilterValue, [name]: value }));
+        setFilter(filterValue);
+        const NonEmptyFilterValue = Object.fromEntries(Object.entries(filterValue).filter(([, value]) => value));
+        setSearchParams(NonEmptyFilterValue);
+    }
+
+    const handleFilterClear = () => {
+        setFilter({
+            salesAgent: "",
+            priority: ""
+        });
+        setTimeToClose("");
+        setSearchParams({});
     }
 
     const finalFilteredLeadData = SortLeads2(filteredLeadsData, timeToClose);
-
-    const handleFilterClear = ()=>{
-setFilter({
-salesAgent: "",
-priority: ""    
-});        
-
-setTimeToClose("");
-    }
 
     return (
         <div className="dashboard-wrapper">
@@ -86,12 +99,12 @@ setTimeToClose("");
                             </p>
                         </div>
                         <div className="lead-status-view-details-aligner">
-                            {leadLoading ? " Loading..." : leadError ? "Error Occured" : finalFilteredLeadData?.length===0 || !finalFilteredLeadData ? (
-                               <div className="lead-status-view-No-lead-style">
-                                 <p>
-                                    No leads found matching the criteria
-                                </p>
-                               </div>
+                            {leadLoading ? " Loading..." : leadError ? "Error Occured" : finalFilteredLeadData?.length === 0 || !finalFilteredLeadData ? (
+                                <div className="lead-status-view-No-lead-style">
+                                    <p>
+                                        No leads found matching the criteria
+                                    </p>
+                                </div>
                             ) : (
                                 finalFilteredLeadData?.map((lead, index) => (
                                     <Link className="lead-status-view-details-pills" key={index} to={`/lead-management/${lead._id}`}>

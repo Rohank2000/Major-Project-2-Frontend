@@ -25,7 +25,7 @@ const {isAgentModalOpen, setIsAgentModalOpen, agentFormData, setAgentFormData, a
                     </Link>
                     <div className="header-nav-link">
                         <ul>
-                            <Link to="/leadList">
+                            <Link to="/leads">
                                 <li>Leads</li>
                             </Link>
                             <Link to="/salesAgentManagement">

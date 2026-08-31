@@ -38,7 +38,7 @@ const DashBoard = () => {
                     <aside className="homepage-sidebar">
                         <h3>Sidebar</h3>
                         <ul>
-                            <Link to="/leadList"><li>
+                            <Link to="/leads"><li>
                                 Leads
                             </li></Link>
                             <Link to="/salesAgentManagement">
