@@ -89,7 +89,7 @@ const LeadManagement = () => {
             triggerToast(editLeadData.data.message);
         } catch (error) {
             if (error.response) {
-                triggerToast(error.response.data?.message || error.response.data?.error||"Error Occured in Backend Database");
+                triggerToast(error.response.data?.message || error.response.data?.error || "Error Occured in Backend Database");
             } else {
                 triggerToast(error.message);
             }
@@ -127,7 +127,7 @@ const LeadManagement = () => {
             triggerToast(addNewComment.data.message);
         } catch (error) {
             if (error.response) {
-                triggerToast(error.response.data?.message || error.response.data?.error||"Error Occured in Backend Database");
+                triggerToast(error.response.data?.message || error.response.data?.error || "Error Occured in Backend Database");
             } else {
                 triggerToast(error.message);
             }
@@ -163,37 +163,39 @@ const LeadManagement = () => {
                                 <div className="lead-management-lead-details-paragraph-card">
                                     <p>Lead Name : {leadsLoading ? "Loading..." : leadsError ? "Error Occured" : presentLeadDetails?.name}</p>
                                     <p>Sales Agent : {leadsLoading ? "Loading..." : leadsError ? "Error Occured" : presentLeadDetails?.salesAgent?.name}</p>
-                                    <p>Lead Status : {leadsLoading ? "Loading..." : leadsError ? "Error Occured" : presentLeadDetails?.status}</p>
+                                    <p>Tags : {leadsLoading ? "Loading..." : leadsError ? "Error Occured" : presentLeadDetails?.tags?.join(", ")}</p>
+                                    <p>Source : {leadsLoading ? "Loading..." : leadsError ? "Error Occured" : presentLeadDetails?.source}</p>
+                                    <p>Status : {leadsLoading ? "Loading..." : leadsError ? "Error Occured" : presentLeadDetails?.status}</p>
                                     <p>Priority : {leadsLoading ? "Loading..." : leadsError ? "Error Occured" : presentLeadDetails?.priority}</p>
                                     <p> Time to Close : {leadsLoading ? "Loading..." : leadsError ? "Error Occured" : presentLeadDetails?.timeToClose} Days</p>
                                 </div>
                             </div>
                             <div className="lead-management-edit-details-styles">
-                                <button onClick={()=>setIsEditModalOpen(true)}>
+                                <button onClick={() => setIsEditModalOpen(true)}>
                                     Edit Lead Details
                                 </button>
                             </div>
                             {isDeleteModalOpen && (
-                                <div className="delete-modal-overlay" onClick={()=>setIsDeleteModalOpen(false)}>
-                                <div className="delete-modal-content" onClick={(event)=>event.stopPropagation()}>
-  <button type="button" className="delete-cross-cancel-button-style" onClick={()=>setIsDeleteModalOpen(false)}>
-                                    &times;
-                                </button>
-<p>
-Are you sure you want to delete this lead? This action cannot be undone.
-</p>
-<div className="delete-button-alignment-style">
-    <button type="button" className="delete-button" onClick={()=>deleteLead(leadId)} disabled={deleteLoading || leadsLoading || !presentLeadDetails}>{deleteLoading ? "Deleting..." : "Permanently Delete"}</button>
-    <button type="button" className="delete-cancel-button" onClick={()=>setIsDeleteModalOpen(false)}>Cancel</button>
-</div>
+                                <div className="delete-modal-overlay" onClick={() => setIsDeleteModalOpen(false)}>
+                                    <div className="delete-modal-content" onClick={(event) => event.stopPropagation()}>
+                                        <button type="button" className="delete-cross-cancel-button-style" onClick={() => setIsDeleteModalOpen(false)}>
+                                            &times;
+                                        </button>
+                                        <p>
+                                            Are you sure you want to delete this lead? This action cannot be undone.
+                                        </p>
+                                        <div className="delete-button-alignment-style">
+                                            <button type="button" className="delete-button" onClick={() => deleteLead(leadId)} disabled={deleteLoading || leadsLoading || !presentLeadDetails}>{deleteLoading ? "Deleting..." : "Permanently Delete"}</button>
+                                            <button type="button" className="delete-cancel-button" onClick={() => setIsDeleteModalOpen(false)}>Cancel</button>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
                             )}
-                            
+
                             <div className="lead-management-delete-styles">
                                 <button
                                     className="delete-lead-button"
-                                    onClick={()=>setIsDeleteModalOpen(true)}
+                                    onClick={() => setIsDeleteModalOpen(true)}
                                     disabled={deleteLoading || leadsLoading || !presentLeadDetails}
                                     title="Delete this lead permanently"
                                 >
@@ -201,7 +203,7 @@ Are you sure you want to delete this lead? This action cannot be undone.
                                         "Deleting..."
                                     ) : (
                                         <>
-                                            <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="currentColor"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/></svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="currentColor"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z" /></svg>
                                             Delete Lead
                                         </>
                                     )}
@@ -265,9 +267,9 @@ Are you sure you want to delete this lead? This action cannot be undone.
                         </section>
                     </div>
                     {isEditModalOpen && (
-                        <div className="modal-overlay" onClick={()=>setIsEditModalOpen(false)}>
-                            <div className="modal-content" onClick={(event)=>event.stopPropagation()}>
-                                <button type="button" className="modal-close-button" onClick={() =>setIsEditModalOpen(false)}>
+                        <div className="modal-overlay" onClick={() => setIsEditModalOpen(false)}>
+                            <div className="modal-content" onClick={(event) => event.stopPropagation()}>
+                                <button type="button" className="modal-close-button" onClick={() => setIsEditModalOpen(false)}>
                                     &times;
                                 </button>
                                 <form className="form-style" onSubmit={uploadFormData}>
@@ -336,7 +338,7 @@ Are you sure you want to delete this lead? This action cannot be undone.
                                     </div>
                                     <div className="form-button-styling">
                                         <button className="submit-button" type="submit" disabled={formLoading || leadsLoading}>{formLoading || leadsLoading ? "Loading" : "Submit"}</button>
-                                        <button className="cancel-button" type="button" onClick={()=>setIsEditModalOpen(false)}>Cancel</button>
+                                        <button className="cancel-button" type="button" onClick={() => setIsEditModalOpen(false)}>Cancel</button>
                                     </div>
                                 </form>
                             </div>
