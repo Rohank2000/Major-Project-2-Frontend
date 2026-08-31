@@ -57,7 +57,7 @@ return(
 <div className="centering-the-heading">
     <h3>Total Leads closed and in Pipeline: </h3>
     <div>
-{<LeadClosedPipelinePieChart closedCount={totalLeadsClosedByLastWeekCount} pipelineCount={totalLeadsInPipelineCount} />}
+{(totalLeadsInPipelineLoading || leadsClosedByLastWeekLoading) ? "Loading..." : (totalLeadsInPipelineError || leadsClosedByLastWeekError) ? "Error Occured" : <LeadClosedPipelinePieChart closedCount={totalLeadsClosedByLastWeekCount} pipelineCount={totalLeadsInPipelineCount} />}
     </div>
 </div>
 <div className="centering-the-heading-2">
@@ -65,7 +65,7 @@ return(
 Leads Closed by Sales Agent:   
     </h3>
     <div>
-    {<LeadClosedBySalesAgentBarChart data={leadClosedBySalesAgent?.map((agent)=>agent.agentName)} options={leadClosedBySalesAgent?.map((agent)=>agent.closedLeads)}/>}
+    {closedBySalesAgentLoading ? "Loading..." : closedBySalesAgentError ? "Error Occured" : <LeadClosedBySalesAgentBarChart data={leadClosedBySalesAgent?.map((agent)=>agent.agentName)} options={leadClosedBySalesAgent?.map((agent)=>agent.closedLeads)}/>}
     </div>
 </div>
 <div className="centering-the-heading-3">
@@ -73,7 +73,7 @@ Leads Closed by Sales Agent:
 Lead Status Distribution:
     </h3>
     <div>
-{<GroupedLeadStatusByCategory data={Object.entries(groupedStatusCount ?? {}).map(([k,v])=>k) ?? ['No Data']} options={Object.entries(groupedStatusCount ?? {}).map(([k,v])=>v) ?? [0]}/>}
+{totalLeadsInPipelineLoading ? "Loading..." : totalLeadsInPipelineError ? "Error Occured" : <GroupedLeadStatusByCategory data={Object.entries(groupedStatusCount ?? {}).map(([k,v])=>k) ?? ['No Data']} options={Object.entries(groupedStatusCount ?? {}).map(([k,v])=>v) ?? [0]}/>}
     </div>
 </div>
 </div>

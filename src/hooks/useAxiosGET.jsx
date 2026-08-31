@@ -23,7 +23,7 @@ const useAxios = (url, initialValue) => {
                 if (error.fetchResource) {
                     setError(`Server Error : ${error.fetchResource.status} - ${error.fetchResource.data}`)
                 } else if (error.request) {
-                    setError("Network Error : No Error Received.");
+                    setError("Network Error");
                 } else {
                     setError(error.message);
                 }

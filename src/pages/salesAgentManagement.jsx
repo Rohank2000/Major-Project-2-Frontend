@@ -1,7 +1,6 @@
 import useAxios from "../hooks/useAxiosGET";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
-import { AgentModalContext } from "../context/AgentModalContext";
+import useAddNewSalesAgent from "../hooks/useAddNewSalesAgent";
 
 const SalesAgentManagement = ()=> {
 
@@ -12,7 +11,7 @@ const getSalesAgentUrl = `${BASE_URL}/agents`;
 const {data:agentData, loading:agentLoading, error:agentError} = useAxios(getSalesAgentUrl,[]);
 const agent = agentData?.allAgents;
 
-const {setIsModalOpen} = useContext(AgentModalContext);
+const {setIsAgentModalOpen} = useAddNewSalesAgent();
 
     return(
         <div className="dashboard-wrapper">
@@ -43,7 +42,7 @@ const {setIsModalOpen} = useContext(AgentModalContext);
             </ul>
         </div>
         <div className="Add-New-Agent">
-            <button onClick={()=>setIsModalOpen(true)}>Add New Agent</button>
+            <button onClick={()=>setIsAgentModalOpen(true)}>Add New Agent</button>
         </div>
     </div>
 </section>

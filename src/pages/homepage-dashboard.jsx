@@ -1,8 +1,7 @@
 import useAxios from "../hooks/useAxiosGET";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
-import { AgentModalContext } from "../context/AgentModalContext";
-import { LeadModalContext } from "../context/LeadModalContext";
+import useAddNewLead from "../hooks/useAddNewLead";
+import useAddNewSalesAgent from "../hooks/useAddNewSalesAgent";
 
 const DashBoard = () => {
 
@@ -27,9 +26,10 @@ const DashBoard = () => {
 
     const last3LeadsData = LeadsData?.lead?.slice(-3);
 
-    const { setIsModalOpen } = useContext(AgentModalContext);
-    const { setIsLeadModalOpen } = useContext(LeadModalContext);
+    const {setIsAgentModalOpen} = useAddNewSalesAgent();
 
+    const {setIsLeadModalOpen} = useAddNewLead();
+    
     return (
         <div className="dashboard-wrapper">
             <main className="homepage-container">
@@ -44,7 +44,7 @@ const DashBoard = () => {
                             <Link to="/salesAgentManagement">
                                 <li>Sales</li>
                             </Link>
-                            <Link onClick={() => setIsModalOpen(true)}>
+                            <Link onClick={() =>setIsAgentModalOpen(true)}>
                                 <li>Agents</li>
                             </Link>                            <Link to="/report-screen">
                                 <li>Reports</li>
@@ -54,7 +54,7 @@ const DashBoard = () => {
                     <section className="homepage-section-body">
                         <h3>Main Content</h3>
                         <div className="homepage-recent-leads-styles">
-                            {LeadsLoading ? " Loading..." : last3LeadsData?.map((item, index) => (
+                            {LeadsLoading ? " Loading..." : LeadsError ? "Error Occured" : last3LeadsData?.map((item, index) => (
                                 <Link key={index} to={`/lead-management/${item._id}`} className="homepage-recent-lead-button">{item.name}</Link>
                             ))}
 
@@ -62,7 +62,7 @@ const DashBoard = () => {
                         <div className="homepage-align-status-center">
                             <ul>
                                 <p>Lead Status:</p>
-                                {LeadsLoading ? " Loading..." : (
+                                {LeadsLoading ? " Loading..." : LeadsError ? "Error Occured" : (
                                     <div>
                                         <li> - New: [{filterLeadForNewTotalCount}] Leads </li>
                                         <li>- Contacted: [{filterLeadForContactedTotalCount}] Leads</li>

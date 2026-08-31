@@ -1,13 +1,10 @@
-import useToast from "../hooks/useToast";
 import axios from "axios";
 import { useState, useContext } from "react";
-import { AgentModalContext } from "../context/AgentModalContext";
+import { ModalContext } from "../context/ModalContext";
 
+const useAddNewSalesAgent = (AgentTriggerToast)=>{
 
-const useAddNewSalesAgent = ()=>{
-
-const { toastMessage, showToast, triggerToast } = useToast(null);
-    const {isModalOpen, setIsModalOpen} = useContext(AgentModalContext);
+    const {isAgentModalOpen, setIsAgentModalOpen} = useContext(ModalContext);
 
     const [agentFormData, setAgentFormData] = useState({ name: "", email: "" });
     const [agentFormLoading, setAgentFormLoading] = useState(false);
@@ -23,20 +20,20 @@ const { toastMessage, showToast, triggerToast } = useToast(null);
         event.preventDefault();
         setAgentFormLoading(true);
         try {
-            const res = await axios.post(`${BASE_URL}/agents`, agentFormData);
-            triggerToast(res.data.message);
+            const agentDataUpload = await axios.post(`${BASE_URL}/agents`, agentFormData);
+            AgentTriggerToast(agentDataUpload.data.message);
         } catch (error) {
             if (error.response) {
-                triggerToast(error.response.data?.message || error.response.data?.error || "Error Occured in Backend Database");
+                AgentTriggerToast(error.response.data?.message || error.response.data?.error || "Error Occured in Backend Database");
             } else {
-                triggerToast(error.message);
+                AgentTriggerToast(error.message);
             }
         } finally {
             setAgentFormLoading(false);
         }
     }
 
-return {toastMessage, showToast, triggerToast, isModalOpen, setIsModalOpen, agentFormData, setAgentFormData, agentFormLoading, handleAgentFormData, handleAgentFormSubmit}    
+return {isAgentModalOpen, setIsAgentModalOpen, agentFormData, setAgentFormData, agentFormLoading, handleAgentFormData, handleAgentFormSubmit}    
 }
 
 export default useAddNewSalesAgent;

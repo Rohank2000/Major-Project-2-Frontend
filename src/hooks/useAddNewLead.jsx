@@ -1,7 +1,7 @@
 import { useState, useContext} from "react";
 import axios from "axios";
 import useAxios from "../hooks/useAxiosGET";
-import { LeadModalContext } from "../context/LeadModalContext";
+import { ModalContext } from "../context/ModalContext";
 
 const useAddNewLead = (parentTriggerToast) => {
     const [leadFormData, setLeadFormData] = useState({
@@ -16,7 +16,7 @@ const useAddNewLead = (parentTriggerToast) => {
 
     const [formLoading, setFormLoading] = useState(false);
 
-    const { isLeadModalOpen, setIsLeadModalOpen } = useContext(LeadModalContext);
+    const { isLeadModalOpen, setIsLeadModalOpen } = useContext(ModalContext);
 
     const BASE_URL = import.meta.env.VITE_BASE_URL;
 
@@ -42,11 +42,11 @@ const useAddNewLead = (parentTriggerToast) => {
         setFormLoading(true);
 
         try {
-            const postRequest = await axios.post(postNewLeadUrl, leadFormData);
-            parentTriggerToast(postRequest.data.message);
+            const leadDataUpload = await axios.post(postNewLeadUrl, leadFormData);
+            parentTriggerToast(leadDataUpload.data.message);
         } catch (error) {
             if (error.response) {
-                parentTriggerToast(error.response.data?.message || error.response.data?.error || "An error occurred");
+                parentTriggerToast(error.response.data?.message || error.response.data?.error || "Error Occured in Backend Database");
             } else {
                 parentTriggerToast(error.message);
             }

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import useAxios from "../hooks/useAxiosGET";
 
@@ -8,9 +8,20 @@ import { useParams } from "react-router-dom";
 
 import SortLeads2 from "../hooks/sortLeads2";
 
+import useToast from "../hooks/useToast";
+
 const LeadsOfSalesAgent = () => {
 
     const {salesAgentId} = useParams();
+
+    const { toastMessage, showToast, triggerToast } = useToast(null);
+
+    useEffect(() => {
+        if (!salesAgentId) {
+            triggerToast("Sales Agent ID is missing.");
+            return
+        }
+    }, [salesAgentId]);
 
     const [filter, setFilter] = useState({
             priority: "",
@@ -46,6 +57,9 @@ setTimeToClose("");
 
     return (
         <div className="dashboard-wrapper">
+            {showToast && (
+                <div className={String(toastMessage).toLowerCase().includes("error") || String(toastMessage).toLowerCase().includes("invalid") ? "toast-red-style" : "toast-green-style"}>{toastMessage}</div>
+            )}
             <main className="leads-By-SalesAgent-container">
                 <h2 className="leads-By-SalesAgent-main-heading-style">Leads by Sales Agent</h2>
                 <section className="leads-By-SalesAgent-horizontal-aligner">
@@ -67,11 +81,11 @@ setTimeToClose("");
                         </div>
                         <div className="leads-By-SalesAgent-third-heading-centering-outer-card">
                             <div className="leads-By-SalesAgent-third-heading-centering">
-                                <h3>Sales Agent: {agentLoading ? "Loading..." : filteredAgent?.name}</h3>
+                                <h3>Sales Agent: {agentLoading ? "Loading..." : agentError ? "Error Occured" : filteredAgent?.name}</h3>
                             </div>
                         </div>
                         <div className="leads-By-SalesAgent-lead-details-centering">
-{leadsLoading ? "Loading" :  filteredLeadsData?.length===0||!filteredLeadsData ? (
+{leadsLoading ? "Loading" : leadsError ? "Error Occured" :  filteredLeadsData?.length===0||!filteredLeadsData ? (
     <div className="leads-By-SalesAgent-lead-No-lead-style">
 <p>No leads found matching the criteria</p>
     </div>

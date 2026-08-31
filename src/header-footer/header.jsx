@@ -2,10 +2,13 @@ import { Link } from "react-router-dom";
 import useAddNewLead from "../hooks/useAddNewLead";
 import useAddNewSalesAgent from "../hooks/useAddNewSalesAgent";
 import Select from "react-select";
+import useToast from "../hooks/useToast";
 
 const Header = () => {
 
-const {toastMessage, showToast, triggerToast, isModalOpen, setIsModalOpen, agentFormData, setAgentFormData, agentFormLoading, handleAgentFormData, handleAgentFormSubmit} = useAddNewSalesAgent();
+const { toastMessage, showToast, triggerToast } = useToast(null);
+
+const {isAgentModalOpen, setIsAgentModalOpen, agentFormData, setAgentFormData, agentFormLoading, handleAgentFormData, handleAgentFormSubmit} = useAddNewSalesAgent(triggerToast);
 
     const {
         leadFormData, isLeadModalOpen, setIsLeadModalOpen,
@@ -28,7 +31,7 @@ const {toastMessage, showToast, triggerToast, isModalOpen, setIsModalOpen, agent
                             <Link to="/salesAgentManagement">
                                 <li>Sales</li>
                             </Link>
-                            <Link onClick={()=>setIsModalOpen(true)}>
+                            <Link onClick={()=>setIsAgentModalOpen(true)}>
                                 <li>Agents</li>
                             </Link>
                             <Link to="/report-screen">
@@ -41,11 +44,11 @@ const {toastMessage, showToast, triggerToast, isModalOpen, setIsModalOpen, agent
             {showToast && (
                 <div className={String(toastMessage).toLowerCase().includes("error") || String(toastMessage).toLowerCase().includes("invalid") ? "toast-red-style" : "toast-green-style"}>{toastMessage}</div>
             )}
-            {isModalOpen && (
-<div className="sales-agent-List-Modal-Overlay" onClick={()=>setIsModalOpen(false)}>
+            {isAgentModalOpen && (
+<div className="sales-agent-List-Modal-Overlay" onClick={()=>setIsAgentModalOpen(false)}>
     <div className="sales-agent-List-Modal-Content" onClick={(event)=>event.stopPropagation()}>
         <form className="sales-agent-list-form" onSubmit={handleAgentFormSubmit}>
-                <button className="sales-agent-cross-cancel-button-style" onClick={()=>setIsModalOpen(false)}>
+                <button className="sales-agent-cross-cancel-button-style" onClick={()=>setIsAgentModalOpen(false)}>
                     &times;
                 </button>
             <h2>Add New Sales Agent</h2>
@@ -65,7 +68,7 @@ const {toastMessage, showToast, triggerToast, isModalOpen, setIsModalOpen, agent
             </div>
 <div className="sales-agent-form-button-align">
                 <button type="submit" className="form-submit-button">{agentFormLoading ? "Loading..." : "Submit"}</button>
-                <button type="button" className="cancel-form-button" onClick={()=>setIsModalOpen(false)}>Cancel</button>
+                <button type="button" className="cancel-form-button" onClick={()=>setIsAgentModalOpen(false)}>Cancel</button>
             </div>
         </form>
     </div>

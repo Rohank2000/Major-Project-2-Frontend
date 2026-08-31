@@ -1,8 +1,9 @@
 import useAxios from "../hooks/useAxiosGET";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SortLeads2 from "../hooks/sortLeads2";
+import useToast from "../hooks/useToast";
 
 const LeadStatusView = () => {
 
@@ -14,6 +15,15 @@ const LeadStatusView = () => {
     const [timeToClose, setTimeToClose] = useState("");
 
     const { statusCategory } = useParams();
+
+    const { toastMessage, showToast, triggerToast } = useToast(null);
+
+    useEffect(() => {
+        if (!statusCategory) {
+            triggerToast("Status Category is missing.");
+            return
+        }
+    }, [statusCategory]);
 
     const BASE_URL = import.meta.env.VITE_BASE_URL;
 
@@ -48,6 +58,9 @@ setTimeToClose("");
 
     return (
         <div className="dashboard-wrapper">
+            {showToast && (
+                <div className={String(toastMessage).toLowerCase().includes("error") || String(toastMessage).toLowerCase().includes("invalid") || String(toastMessage).toLowerCase().includes("missing") ? "toast-red-style" : "toast-green-style"}>{toastMessage}</div>
+            )}
             <main className="lead-status-view-container">
                 <h2 className="lead-status-view-main-heading">Leads By Status</h2>
                 <section className="lead-status-view-alignment">
@@ -73,7 +86,7 @@ setTimeToClose("");
                             </p>
                         </div>
                         <div className="lead-status-view-details-aligner">
-                            {leadLoading ? " Loading..." : finalFilteredLeadData?.length===0 || !finalFilteredLeadData ? (
+                            {leadLoading ? " Loading..." : leadError ? "Error Occured" : finalFilteredLeadData?.length===0 || !finalFilteredLeadData ? (
                                <div className="lead-status-view-No-lead-style">
                                  <p>
                                     No leads found matching the criteria

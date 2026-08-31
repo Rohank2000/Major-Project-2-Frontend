@@ -1,5 +1,5 @@
 import useAxios from "../hooks/useAxiosGET"
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Select from "react-select";
@@ -8,7 +8,7 @@ import useToast from "../hooks/useToast";
 import useDeleteLead from "../hooks/useDeleteLead";
 
 const LeadManagement = () => {
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isEditModalOpen, setIsEditModalOpen] = useState(false);
     const [formData, setFormData] = useState({
         name: "",
         source: "",
@@ -27,7 +27,7 @@ const LeadManagement = () => {
     const [formLoading, setFormLoading] = useState(false);
     const [commentFormLoading, setCommentFormLoading] = useState(false);
     const { toastMessage, showToast, triggerToast } = useToast(null);
-    const { deleteLead, deleting: deleteLoading } = useDeleteLead(triggerToast);
+    const { deleteLead, deleteLoading, isDeleteModalOpen, setIsDeleteModalOpen } = useDeleteLead(triggerToast);
 
     const BASE_URL = import.meta.env.VITE_BASE_URL
 
@@ -36,6 +36,14 @@ const LeadManagement = () => {
     const filteredAgentData = agentData?.allAgents;
 
     const { leadId } = useParams();
+
+    useEffect(() => {
+        if (!leadId) {
+            triggerToast("Lead ID is missing.");
+            return
+        }
+    }, [leadId]);
+
     const getLeadsData = `${BASE_URL}/leads`;
     const { data: leadsData, loading: leadsLoading, error: leadsError } = useAxios(getLeadsData, []);
     const presentLeadDetails = leadsData?.lead?.find((item) => item._id === leadId);
@@ -81,7 +89,7 @@ const LeadManagement = () => {
             triggerToast(editLeadData.data.message);
         } catch (error) {
             if (error.response) {
-                triggerToast(error.response.data.message);
+                triggerToast(error.response.data?.message || error.response.data?.error);
             } else {
                 triggerToast(error.message);
             }
@@ -102,6 +110,16 @@ const LeadManagement = () => {
     const uploadComment = async (event) => {
         event.preventDefault();
 
+        if (!leadId) {
+            triggerToast("Lead ID is missing.");
+            return;
+        }
+
+        if (!presentLeadDetails?._id) {
+            triggerToast("Lead ID is missing.");
+            return;
+        }
+
         setCommentFormLoading(true);
 
         try {
@@ -109,7 +127,7 @@ const LeadManagement = () => {
             triggerToast(addNewComment.data.message);
         } catch (error) {
             if (error.response) {
-                triggerToast(error.response.data.message);
+                triggerToast(error.response.data?.message || error.response.data?.error||"Error Occured in Backend Database");
             } else {
                 triggerToast(error.message);
             }
@@ -151,14 +169,31 @@ const LeadManagement = () => {
                                 </div>
                             </div>
                             <div className="lead-management-edit-details-styles">
-                                <button onClick={() => setIsModalOpen(true)}>
+                                <button onClick={()=>setIsEditModalOpen(true)}>
                                     Edit Lead Details
                                 </button>
                             </div>
+                            {isDeleteModalOpen && (
+                                <div className="delete-modal-overlay" onClick={()=>setIsDeleteModalOpen(false)}>
+                                <div className="delete-modal-content" onClick={(event)=>event.stopPropagation()}>
+  <button type="button" className="delete-cross-cancel-button-style" onClick={()=>setIsDeleteModalOpen(false)}>
+                                    &times;
+                                </button>
+<p>
+Are you sure you want to delete this lead? This action cannot be undone.
+</p>
+<div className="delete-button-alignment-style">
+    <button type="button" className="delete-button" onClick={()=>deleteLead(leadId)} disabled={deleteLoading || leadsLoading || !presentLeadDetails}>{deleteLoading ? "Deleting..." : "Permanently Delete"}</button>
+    <button type="button" className="delete-cancel-button" onClick={()=>setIsDeleteModalOpen(false)}>Cancel</button>
+</div>
+                                </div>
+                            </div>
+                            )}
+                            
                             <div className="lead-management-delete-styles">
                                 <button
                                     className="delete-lead-button"
-                                    onClick={() => deleteLead(leadId)}
+                                    onClick={()=>setIsDeleteModalOpen(true)}
                                     disabled={deleteLoading || leadsLoading || !presentLeadDetails}
                                     title="Delete this lead permanently"
                                 >
@@ -217,7 +252,7 @@ const LeadManagement = () => {
                                         <label htmlFor="lead-sales-agent" className="lead-management-comment-label">SalesAgent</label>
                                         <select name="author" id="lead-sales-agent" className="lead-management-comment-select" value={commentFormData.author} onChange={handleCommentFormData} required>
                                             <option value="" disabled>Select SalesAgent</option>
-                                            {loadingAgent ? "Loading" : filteredAgentData?.map((item, index) => (
+                                            {loadingAgent ? "Loading" : agentError ? "Error Occured" : filteredAgentData?.map((item, index) => (
                                                 <option key={index} value={item._id} className="lead-management-comment-select-option">{item.name}</option>
                                             ))}
                                         </select>
@@ -229,10 +264,10 @@ const LeadManagement = () => {
                             </form>
                         </section>
                     </div>
-                    {isModalOpen && (
-                        <div className="modal-overlay" onClick={() => setIsModalOpen(false)}>
-                            <div className="modal-content" onClick={(event) => event.stopPropagation()}>
-                                <button type="button" className="modal-close-button" onClick={() => setIsModalOpen(false)}>
+                    {isEditModalOpen && (
+                        <div className="modal-overlay" onClick={()=>setIsEditModalOpen(false)}>
+                            <div className="modal-content" onClick={(event)=>event.stopPropagation()}>
+                                <button type="button" className="modal-close-button" onClick={() =>setIsEditModalOpen(false)}>
                                     &times;
                                 </button>
                                 <form className="form-style" onSubmit={uploadFormData}>
@@ -262,7 +297,7 @@ const LeadManagement = () => {
                                             <label htmlFor="lead-salesAgent">Sales Agent</label>
                                             <select className="vertical-Stacking-edit-lead-details-input-style" name="salesAgent" id="lead-salesAgent" value={leadsLoading ? "Loading..." : formData.salesAgent} onChange={handleInputData}>
                                                 <option value="" disabled>Select SalesAgent</option>
-                                                {filteredAgentData?.map((item, index) => (
+                                                {loadingAgent ? "Loading" : agentError ? "Error Occured" : filteredAgentData?.map((item, index) => (
                                                     <option key={index} value={item._id}>{item.name}</option>
                                                 ))}
                                             </select>                                        </div>
@@ -301,7 +336,7 @@ const LeadManagement = () => {
                                     </div>
                                     <div className="form-button-styling">
                                         <button className="submit-button" type="submit" disabled={formLoading || leadsLoading}>{formLoading || leadsLoading ? "Loading" : "Submit"}</button>
-                                        <button className="cancel-button" type="button" onClick={() => setIsModalOpen(false)}>Cancel</button>
+                                        <button className="cancel-button" type="button" onClick={()=>setIsEditModalOpen(false)}>Cancel</button>
                                     </div>
                                 </form>
                             </div>

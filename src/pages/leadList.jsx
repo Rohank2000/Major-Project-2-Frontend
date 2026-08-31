@@ -2,7 +2,7 @@ import useAxios from "../hooks/useAxiosGET";
 import { useState, useContext } from "react";
 import SortLeads from "../hooks/sortLeads";
 import { Link } from "react-router-dom";
-import { LeadModalContext } from "../context/LeadModalContext";
+import useAddNewLead from "../hooks/useAddNewLead";
 
 const LeadList = () => {
 
@@ -25,7 +25,8 @@ const LeadList = () => {
     const agent = agentData?.allAgents;
     const fetchedLeadData = leadData?.lead;
 
-    const {setIsLeadModalOpen} = useContext(LeadModalContext);
+    const { setIsLeadModalOpen } = useAddNewLead();
+
 
     const handleFilter = (event) => {
         const { name, value } = event.target;

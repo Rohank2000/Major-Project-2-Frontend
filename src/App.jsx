@@ -1,6 +1,5 @@
 import { useState } from 'react'
-import { AgentModalProvider } from "./context/AgentModalContext";
-import { LeadModalProvider } from "./context/LeadModalContext";
+import { ModalProvider } from "./context/ModalContext";
 import DashBoard from "./pages/homepage-dashboard";
 import LeadManagement from "./pages/lead-management";
 import SalesAgentManagement from "./pages/salesAgentManagement";
@@ -20,6 +19,7 @@ import './CSS/leadStatusView.css';
 import './CSS/leadsBySalesAgent.css';
 import './CSS/leadList.css';
 import './CSS/useToast.css';
+import './CSS/ModalStyle.css'
 import './CSS/totalLeadClosedPieChartStyle.css';
 import './CSS/leadClosedBySalesAgentBarChart.css';
 import './CSS/groupedLeadStatus.css';
@@ -31,8 +31,7 @@ function App() {
   return (
     <div className="app-wrapper">
       <Router>
-        <AgentModalProvider>
-          <LeadModalProvider>
+          <ModalProvider>
             <Header />
             <Routes>
             <Route path="/" element={<DashBoard />} />
@@ -44,8 +43,7 @@ function App() {
             <Route path="/leadsBySalesAgent/:salesAgentId" element={<LeadsOfSalesAgent />} />
           </Routes>
           <Footer />
-          </LeadModalProvider>
-        </AgentModalProvider>
+          </ModalProvider>
       </Router>
     </div>
   );
