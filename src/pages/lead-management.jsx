@@ -89,7 +89,7 @@ const LeadManagement = () => {
             triggerToast(editLeadData.data.message);
         } catch (error) {
             if (error.response) {
-                triggerToast(error.response.data?.message || error.response.data?.error);
+                triggerToast(error.response.data?.message || error.response.data?.error||"Error Occured in Backend Database");
             } else {
                 triggerToast(error.message);
             }
