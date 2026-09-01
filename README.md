@@ -115,7 +115,6 @@ Base URL is configured via `VITE_BASE_URL`.
 src/
 ├── App.jsx                 # Routes: /, /leads, /lead-management/:leadId, /leadStatusView/:statusCategory, /leadsBySalesAgent/:salesAgentId, etc.
 ├── main.jsx
-├── App.css                 # (currently commented out)
 ├── context/
 │   └── ModalContext.jsx    # Single context: isLeadModalOpen, isAgentModalOpen, isDeleteModalOpen
 ├── header-footer/
