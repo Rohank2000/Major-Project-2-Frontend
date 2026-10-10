@@ -1,18 +1,18 @@
 {
-  "$schema": "https://vercel.sh",
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "framework": "vite",
   "redirects": [
     {
-      "source": "/:path*",
+      "source": "/(.*)",
       "has": [
         {
           "type": "host",
           "value": "major-project-2-frontend.vercel.app"
         }
       ],
-      "destination": "https://prospecta.vercel.app*",
+      "destination": "https://prospecta.vercel.app",
       "permanent": true
     }
   ],
