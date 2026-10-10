@@ -33,7 +33,7 @@ React 19 · Vite 8 · React Router 7 · Axios 1 · Chart.js 4 · react-chartjs-2
 
 ```bash
 git clone https://github.com/Rohank2000/Major-Project-2-FrontEnd.git
-cd Major-Project-2-FrontEnd 
+cd Major-Project-2-FrontEnd <your-own-repo>
 ```
 
 #### Install Dependencies
@@ -47,7 +47,7 @@ npm install
 Create a `.env` file in the project root:
 
 ```env
-VITE_BASE_URL=https://major-project-2-backend.vercel.app
+VITE_BASE_URL=https://prospectaapi.vercel.app/
 ```
 
 | Variable | Description |
@@ -76,7 +76,7 @@ npm run lint
 ```
 ## Project Live Link 
 
-<a href="https://major-project-2-frontend.vercel.app/">Live Link</a>   
+<a href="https://prospectacrm.vercel.app/">Live Link</a>   
 
 ## Demo video 
 
