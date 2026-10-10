@@ -33,7 +33,7 @@ React 19 · Vite 8 · React Router 7 · Axios 1 · Chart.js 4 · react-chartjs-2
 
 ```bash
 git clone https://github.com/Rohank2000/Major-Project-2-FrontEnd.git
-cd Major-Project-2-FrontEnd
+cd Major-Project-2-FrontEnd 
 ```
 
 #### Install Dependencies
@@ -74,6 +74,13 @@ npm run preview
 ```bash
 npm run lint
 ```
+## Project Live Link 
+
+<a href="https://major-project-2-frontend.vercel.app/">Live Link</a>   
+
+## Demo video 
+
+Watch a walkthrough of functionalities of this app: <a href="https://drive.google.com/file/d/1_CLDSJFka1vjzBzPVBsUmLANbWQgeiYG/view?usp=sharing">Video Link</a>
 
 ## 🧭 Routes
 
