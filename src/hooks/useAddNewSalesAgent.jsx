@@ -9,7 +9,7 @@ const useAddNewSalesAgent = (AgentTriggerToast)=>{
     const [agentFormData, setAgentFormData] = useState({ name: "", email: "" });
     const [agentFormLoading, setAgentFormLoading] = useState(false);
 
-    const BASE_URL = import.meta.env.BASE_URL;
+    const BASE_URL = import.meta.env.VITE_BASE_URL;
 
     const handleAgentFormData = (event) => {
         const { name, value } = event.target;

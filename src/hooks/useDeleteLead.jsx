@@ -10,7 +10,7 @@ const useDeleteLead = (DeletetriggerToast) => {
     const [deleteLoading, setDeleteLoading] = useState(false);
 
     const navigate = useNavigate();
-    const BASE_URL = import.meta.env.BASE_URL;
+    const BASE_URL = import.meta.env.VITE_BASE_URL;
 
     const deleteLead = async (leadId) => {
         if (!leadId) {

@@ -18,7 +18,7 @@ const useAddNewLead = (parentTriggerToast) => {
 
     const { isLeadModalOpen, setIsLeadModalOpen } = useContext(ModalContext);
 
-    const BASE_URL = import.meta.env.BASE_URL;
+    const BASE_URL = import.meta.env.VITE_BASE_URL;
 
     const getAgentsUrl = `${BASE_URL}/agents`;
     const getTagsUrl = `${BASE_URL}/tags`;

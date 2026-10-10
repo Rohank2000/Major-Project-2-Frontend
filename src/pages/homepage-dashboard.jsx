@@ -5,7 +5,7 @@ import useAddNewSalesAgent from "../hooks/useAddNewSalesAgent";
 
 const DashBoard = () => {
 
-    const BASE_URL = import.meta.env.BASE_URL;
+    const BASE_URL = import.meta.env.VITE_BASE_URL;
     const getLeadsData = `${BASE_URL}/leads`;
     const { data: LeadsData, loading: LeadsLoading, error: LeadsError } = useAxios(getLeadsData, []);
 

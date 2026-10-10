@@ -47,12 +47,12 @@ npm install
 Create a `.env` file in the project root:
 
 ```env
-BASE_URL=https://major-project-2-backend.vercel.app
+VITE_BASE_URL=https://major-project-2-backend.vercel.app
 ```
 
 | Variable | Description |
 |----------|-------------|
-| `BASE_URL` | Backend API base URL |
+| `VITE_BASE_URL` | Backend API base URL |
 
 #### Run Development Server
 
@@ -114,7 +114,7 @@ Watch a walkthrough of functionalities of this app: <a href="https://drive.googl
 | `GET` | `/report/closed-by-agent` | Leads closed grouped by sales agent |
 | `GET` | `/report/last-week` | Leads closed in last week |
 
-Base URL is configured via `BASE_URL`.
+Base URL is configured via `VITE_BASE_URL`.
 
 ## 📁 Project Structure
 
@@ -195,7 +195,7 @@ New → Contacted → Qualified → Proposal Sent → Closed
 - Frontend: Vercel / Netlify (Vite build output `dist/`, see `vercel.json`)
 - Backend: `https://major-project-2-backend.vercel.app`
 
-Set `BASE_URL` in your hosting provider's environment variables before deploying.
+Set `VITE_BASE_URL` in your hosting provider's environment variables before deploying.
 
 ---
 
