@@ -33,7 +33,7 @@ const DashBoard = () => {
     return (
         <div className="dashboard-wrapper">
             <main className="homepage-container">
-                <h2 className="homepage-h2">Anvaya CRM Dashboard</h2>
+                <h2 className="homepage-h2">Prospecta CRM Dashboard</h2>
                 <div className="homepage-sidebar-and-body">
                     <aside className="homepage-sidebar">
                         <h3>Sidebar</h3>
