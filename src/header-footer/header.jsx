@@ -21,7 +21,7 @@ const {isAgentModalOpen, setIsAgentModalOpen, agentFormData, setAgentFormData, a
             <div className="header-bg-color">
                 <header className="header-align-inline">
                     <Link to="/">
-                        <img src="http://i.ibb.co/G310JwRG/Gemini-Generated-Image-5e356q5e356q5e35.png" alt="avanya-crm-logo" className="header-img-style" />
+                        <img src="https://i.ibb.co/SwDkhK02/dadc35a6-256e-4896-a052-a911627250a6.png" alt="avanya-crm-logo" className="header-img-style" />
                     </Link>
                     <div className="header-nav-link">
                         <ul>

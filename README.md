@@ -1,4 +1,4 @@
-# 👔 Anvaya CRM (Major Project 2 Frontend)
+# 👔 Prospecta CRM 
 
 A modern Lead Management CRM frontend — built with React + Vite. Manage the complete lead lifecycle: assign sales agents, track status progression, add comments, and visualize performance with reports.
 
@@ -199,4 +199,4 @@ Set `VITE_BASE_URL` in your hosting provider's environment variables before depl
 
 ---
 
-Built for Anvaya CRM — Lead lifecycle management with sales agent assignment and reporting.
+Built for Prospecta CRM — Lead lifecycle management with sales agent assignment and reporting.

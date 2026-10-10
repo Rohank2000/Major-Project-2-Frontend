@@ -3,7 +3,7 @@ const Footer = () => {
         <div className="footer-bg-color">
                 <div>
                     <footer>
-                    &copy; Anvaya CRM 2026
+                    &copy; Prospecta CRM 2026
                 </footer>
                 </div>
         </div>
