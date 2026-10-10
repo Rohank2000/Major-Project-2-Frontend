@@ -193,7 +193,7 @@ New → Contacted → Qualified → Proposal Sent → Closed
 ## 🌐 Deployment
 
 - Frontend: Vercel / Netlify (Vite build output `dist/`, see `vercel.json`)
-- Backend: `https://major-project-2-backend.vercel.app`
+- Backend: `https://prospectaapi.vercel.app/`
 
 Set `VITE_BASE_URL` in your hosting provider's environment variables before deploying.
 
