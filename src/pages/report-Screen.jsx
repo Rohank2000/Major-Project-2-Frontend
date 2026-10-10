@@ -6,7 +6,7 @@ import GroupedLeadStatusByCategory from "../components/groupedLeadStatusPieChart
 
 const ReportScreen = ()=>{
 
-const BASE_URL = import.meta.env.VITE_BASE_URL;    
+const BASE_URL = import.meta.env.BASE_URL;    
 
 const getLeadDataUrl = `${BASE_URL}/leads`
 

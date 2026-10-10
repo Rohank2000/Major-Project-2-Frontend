@@ -29,7 +29,7 @@ const LeadManagement = () => {
     const { toastMessage, showToast, triggerToast } = useToast(null);
     const { deleteLead, deleteLoading, isDeleteModalOpen, setIsDeleteModalOpen } = useDeleteLead(triggerToast);
 
-    const BASE_URL = import.meta.env.VITE_BASE_URL
+    const BASE_URL = import.meta.env.BASE_URL
 
     const agentList = `${BASE_URL}/agents`;
     const { data: agentData, loading: loadingAgent, error: agentError } = useAxios(agentList, []);

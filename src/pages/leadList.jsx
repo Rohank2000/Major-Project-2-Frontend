@@ -17,7 +17,7 @@ const LeadList = () => {
     const [priority, setPriority] = useState("");
     const [timeToClose, setTimeToClose] = useState("");
 
-    const BASE_URL = import.meta.env.VITE_BASE_URL;
+    const BASE_URL = import.meta.env.BASE_URL;
 
     const getLeadUrl = `${BASE_URL}/leads?status=${filter.status}&salesAgent=${filter.salesAgent}&tags=${filter.tags}&source=${filter.source}`;
     const getSalesAgentUrl = `${BASE_URL}/agents`;

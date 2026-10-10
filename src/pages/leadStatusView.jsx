@@ -27,7 +27,7 @@ const LeadStatusView = () => {
         }
     }, [statusCategory]);
 
-    const BASE_URL = import.meta.env.VITE_BASE_URL;
+    const BASE_URL = import.meta.env.BASE_URL;
 
     const getLeadsQueryDataUrl = `${BASE_URL}/leads?salesAgent=${filter.salesAgent}&priority=${filter.priority}`;
 
