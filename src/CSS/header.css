@@ -44,9 +44,7 @@
   }
 
   .header-img-style {
-    width: 28px;
-    height: 28px;
-    /* max-width: 300px; */
+    max-width: 300px;
   }
 }
 
